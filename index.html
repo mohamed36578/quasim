@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Restaurant</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Add some custom styling */
+        body {
+            font-family: Arial, sans-serif;
+            
+        }
+        .section {
+            padding: 60px 0;
+        }
+        .section h2 {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        /* Customize section colors */
+        #home { background-color: #f8f9fa; 
+            background: url('x.png') no-repeat center center;
+            background-size: cover;
+            color: rgba(102, 20, 20, 0.863);
+            text-align: center;
+            padding: 100px 0;}
+        #beef { background-color: #ececec; 
+            background: url('pizza_1.jpg') no-repeat center center;
+            background-size: cover;}
+        #chicken { background-color: #f8f9fa; 
+            background: url('chicken.jpg') no-repeat center center;
+            background-size: cover;}
+        #burger { background-color: #ececec; 
+            background: url('burgeur.jpg') no-repeat center center;
+            background-size: cover;}
+        #drinks { background-color: #f8f9fa; 
+            background: url('drinks.jpg') no-repeat center center;
+            background-size: cover;}
+
+
+        h2{
+            background-color: rgba(0, 0, 0, 0.5); /* 50% opacity */
+            color: #ececec;
+            width: 100px;
+            border-radius: 10px;
+
+
+        }
+        .container {
+            perspective: 1000px;
+            margin-bottom: 20px; /* Add some space between cards */
+            width: 100%;
+        }
+
+        /* Flippable card */
+        .card {
+            width: 100%;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            border: none;
+            background-color: rgba(0, 0, 0, 0); /* 50% opacity */
+            border-radius: 10px;
+            color: black;
+        }
+
+        /* Flip when class 'flipped' is added */
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        /* Front and back styles */
+        .card-front, .card-back {
+            position: absolute;
+            backface-visibility: hidden;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border-radius: 10px;
+            background-color: rgba(241, 241, 241, 0.5);
+            border: black solid 2px;
+            
+        
+        }
+
+        /* Back of the card */
+        .card-back {
+            transform: rotateY(180deg);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #f8f9fa;
+            border: white solid 2px;
+            
+            
+        }
+        #done_link{
+            color: white;
+        }
+        
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <button id="done" class="btn btn-success"><a class="nav-link" href="#result" id="done_link">done</a></button>
+    <a class="navbar-brand" href="#home">Your Restaurant</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+        
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#beef">Beef</a></li>
+            <li class="nav-item"><a class="nav-link" href="#chicken">Chicken</a></li>
+            <li class="nav-item"><a class="nav-link" href="#burger">Burgers</a></li>
+            <li class="nav-item"><a class="nav-link" href="#drinks">Drinks</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Sections -->
+<div id="home" class="section">
+    <div class="container text-center">
+        
+    </div>
+</div>
+
+            <!-- Buttons for each section -->
+            <div class="mt-4 d-flex justify-content-center">
+                <a href="#beef" class="btn btn-dark m-2">Beef Dishes</a>
+                <a href="#chicken" class="btn btn-dark m-2">Chicken Dishes</a>
+                <a href="#burger" class="btn btn-dark m-2">Burgers</a>
+                <a href="#drinks" class="btn btn-dark m-2">Drinks</a>
+            </div>
+            <br>
+            
+            
+
+<div id="beef" class="section">
+    <div class="container">
+        <h2>pizza</h2>
+        <div class="row">
+            <!-- Chicken Dish Example -->
+            <div class="col-md-4"> 
+        <!-- Card 3 -->
+        <div class="card mb-3">
+            <div class="flip-container">
+                <div class="card">
+                    <div class="card-front p-3">
+                        <div class="hd_card d-flex align-items-center justify-content-between w-100">
+                            <h3 class="m-0">Pizza Margherita <br> <small>soce, food, chikin wings, spice, <br> this pizza is so nice all our customers like it </small>   <br> </h3>
+                            <button class="flip-button btn btn-success">Flip</button>
+                        </div>
+                    </div>
+                    <div class="card-back p-3">
+                        <h5>pizza_margeritta</h5>
+                        <p>price </p>
+                        <p class="price" >1000</p>
+                        <p class="details" style="display: none;" >___________________</p>
+                        
+                        <div class="d-flex align-items-center">
+                            <button class="moinsButton btn btn-danger m-1" style="display: none;" >-</button>
+                            <h5 class="m-0 mx-2 counter">0</h5>
+                            <p class="m-0 mx-2" >pcs</p>
+                            <h5 class="m-0 mx-2 counter_price" style="display: none;"  >1000</h5>
+                            
+                            <button class="plusButton btn btn-success m-1" >add to cart</button>
+                            
+                            <p class="m-0 mx-2">Total : </p>
+                            <h5 class="m-0 mx-2 counter_total">0</h5>
+                            <button class="orderButton btn btn-danger m-1">cancel</button>
+                            <p class="details" style="display: none;" ></p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            
+        </div>
+
+        <div class="col-md-4"> 
+                      <!-- Card 3 -->
+        <div class="card mb-3">
+            <div class="flip-container">
+                <div class="card">
+                    <div class="card-front p-3">
+                        <div class="hd_card d-flex align-items-center justify-content-between w-100">
+                            <h3 class="m-0">Pizza Margherita <br> <small>soce, food, chikin wings, spice, <br> this pizza is so nice all our customers like it </small>   <br> </h3>
+                            <button class="flip-button btn btn-success">Flip</button>
+                        </div>
+                    </div>
+                    <div class="card-back p-3">
+                        <h5>pizza_margeritta</h5>
+                        <p>price </p>
+                        <p class="price" >1000</p>
+                        
+                        <p class="details" style="display: none;" >___________________</p>
+                        
+                        <div class="d-flex align-items-center">
+                            <button class="moinsButton btn btn-danger m-1" style="display: none;" >-</button>
+                            <h5 class="m-0 mx-2 counter">0</h5>
+                            <p class="m-0 mx-2" >pcs</p>
+                            <h5 class="m-0 mx-2 counter_price" style="display: none;"  >1000</h5>
+                            
+                            <button class="plusButton btn btn-success m-1" >add to cart</button>
+                            
+                            <p class="m-0 mx-2">Total : </p>
+                            <h5 class="m-0 mx-2 counter_total">0</h5>
+                            <button class="orderButton btn btn-danger m-1">cancel</button>
+                            <p class="details" style="display: none;" ></p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            
+        </div>
+            <div class="col-md-4"> 
+                       <!-- Card 3 -->
+        <div class="card mb-3">
+            <div class="flip-container">
+                <div class="card">
+                    <div class="card-front p-3">
+                        <div class="hd_card d-flex align-items-center justify-content-between w-100">
+                            <h3 class="m-0">Pizza Margherita</h3>
+                            <button class="flip-button btn btn-success">Flip</button>
+                        </div>
+                    </div>
+                    <div class="card-back p-3">
+                        <h5>Order Details</h5>
+                        
+                        <div class="d-flex align-items-center">
+                            <button class="orderButton btn btn-danger m-1">cancel</button>
+                            <h5 class="m-0 mx-2 counter">0</h5>
+                            <button class="plusButton btn btn-success m-1" >add to cart</button>
+                            <button class="moinsButton btn btn-danger m-1" style="display: none;" >-</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+                    
+                </div>
+
+                <div class="col-md-4"> 
+                                         <!-- Card 3 -->
+        <div class="card mb-3">
+            <div class="flip-container">
+                <div class="card">
+                    <div class="card-front p-3">
+                        <div class="hd_card d-flex align-items-center justify-content-between w-100">
+                            <h3 class="m-0">Pizza Margherita</h3>
+                            <button class="flip-button btn btn-success">Flip</button>
+                        </div>
+                    </div>
+                    <div class="card-back p-3">
+                        <h5>Order Details</h5>
+                        
+                        <div class="d-flex align-items-center">
+                            <button class="orderButton btn btn-danger m-1">cancel</button>
+                            <h5 class="m-0 mx-2 counter">0</h5>
+                            <button class="plusButton btn btn-success m-1" >add to cart</button>
+                            <button class="moinsButton btn btn-danger m-1" style="display: none;" >-</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+                        
+                    </div>
+                    <div class="col-md-4"> 
+                                         <!-- Card 3 -->
+        <div class="card mb-3">
+            <div class="flip-container">
+                <div class="card">
+                    <div class="card-front p-3">
+                        <div class="hd_card d-flex align-items-center justify-content-between w-100">
+                            <h3 class="m-0">Pizza Margherita</h3>
+                            <button class="flip-button btn btn-success">Flip</button>
+                        </div>
+                    </div>
+                    <div class="card-back p-3">
+                        <h5>Order Details</h5>
+                        
+                        <div class="d-flex align-items-center">
+                            <button class="orderButton btn btn-danger m-1">cancel</button>
+                            <h5 class="m-0 mx-2 counter">0</h5>
+                            <button class="plusButton btn btn-success m-1" >add to cart</button>
+                            <button class="moinsButton btn btn-danger m-1" style="display: none;" >-</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+                            
+                        </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<div id="chicken" class="section">
+    <div class="container">
+        <h2>pizza</h2>
+        <div class="row">
+            <!-- Chicken Dish Example -->
+            <div class="col-md-4"> 
+        <!-- Card 3 -->
+        <div class="card mb-3">
+            <div class="flip-container">
+                <div class="card">
+                    <div class="card-front p-3">
+                        <div class="hd_card d-flex align-items-center justify-content-between w-100">
+                            <h3 class="m-0">Pizza Margherita</h3>
+                            <button class="flip-button btn btn-success">Flip</button>
+                        </div>
+                    </div>
+                    <div class="card-back p-3">
+                        <h5>Order Details</h5>
+                        
+                        <div class="d-flex align-items-center">
+                            <button class="orderButton btn btn-danger m-1">cancel</button>
+                            <h5 class="m-0 mx-2 counter">0</h5>
+                            <button class="plusButton btn btn-success m-1" >add to cart</button>
+                            <button class="moinsButton btn btn-danger m-1" style="display: none;" >-</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            
+        </div>
+
+        <div class="col-md-4"> 
+                    <!-- Card 3 -->
+        <div class="card mb-3">
+            <div class="flip-container">
+                <div class="card">
+                    <div class="card-front p-3">
+                        <div class="hd_card d-flex align-items-center justify-content-between w-100">
+                            <h3 class="m-0">Pizza Margherita</h3>
+                            <button class="flip-button btn btn-success">Flip</button>
+                        </div>
+                    </div>
+                    <div class="card-back p-3">
+                        <h5>Order Details</h5>
+                        
+                        <div class="d-flex align-items-center">
+                            <button class="orderButton btn btn-danger m-1">cancel</button>
+                            <h5 class="m-0 mx-2 counter">0</h5>
+                            <button class="plusButton btn btn-success m-1" >add to cart</button>
+                            <button class="moinsButton btn btn-danger m-1" style="display: none;" >-</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>    
+            </div>
+            <div class="col-md-4"> 
+                       <!-- Card 3 -->
+        <div class="card mb-3">
+            <div class="flip-container">
+                <div class="card">
+                    <div class="card-front p-3">
+                        <div class="hd_card d-flex align-items-center justify-content-between w-100">
+                            <h3 class="m-0">Pizza Margherita</h3>
+                            <button class="flip-button btn btn-success">Flip</button>
+                        </div>
+                    </div>
+                    <div class="card-back p-3">
+                        <h5>Order Details</h5>
+                        
+                        <div class="d-flex align-items-center">
+                            <button class="orderButton btn btn-danger m-1">cancel</button>
+                            <h5 class="m-0 mx-2 counter">0</h5>
+                            <button class="plusButton btn btn-success m-1" >add to cart</button>
+                            <button class="moinsButton btn btn-danger m-1" style="display: none;" >-</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+                    
+                </div>
+
+                <div class="col-md-4"> 
+                                         <!-- Card 3 -->
+        <div class="card mb-3">
+            <div class="flip-container">
+                <div class="card">
+                    <div class="card-front p-3">
+                        <div class="hd_card d-flex align-items-center justify-content-between w-100">
+                            <h3 class="m-0">Pizza Margherita</h3>
+                            <button class="flip-button btn btn-success">Flip</button>
+                        </div>
+                    </div>
+                    <div class="card-back p-3">
+                        <h5>Order Details</h5>
+                        
+                        <div class="d-flex align-items-center">
+                            <button class="orderButton btn btn-danger m-1">cancel</button>
+                            <h5 class="m-0 mx-2 counter">0</h5>
+                            <button class="plusButton btn btn-success m-1" >add to cart</button>
+                            <button class="moinsButton btn btn-danger m-1" style="display: none;" >-</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+                        
+                    </div>
+                    <div class="col-md-4"> 
+                                         <!-- Card 3 -->
+        <div class="card mb-3">
+            <div class="flip-container">
+                <div class="card">
+                    <div class="card-front p-3">
+                        <div class="hd_card d-flex align-items-center justify-content-between w-100">
+                            <h3 class="m-0">Pizza Margherita</h3>
+                            <button class="flip-button btn btn-success">Flip</button>
+                        </div>
+                    </div>
+                    <div class="card-back p-3">
+                        <h5>Order Details</h5>
+                        
+                        <div class="d-flex align-items-center">
+                            <button class="orderButton btn btn-danger m-1">cancel</button>
+                            <h5 class="m-0 mx-2 counter">0</h5>
+                            <button class="plusButton btn btn-success m-1" >add to cart</button>
+                            <button class="moinsButton btn btn-danger m-1" style="display: none;" >-</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+                            
+                        </div>
+        </div>
+    </div>
+</div>
+<br>
+<div id="burger" class="section">
+    <div class="container">
+        <h2>pizza</h2>
+        <div class="row">
+            <!-- Chicken Dish Example -->
+            <div class="col-md-4"> 
+        <!-- Card 3 -->
+        <div class="card mb-3">
+            <div class="flip-container">
+                <div class="card">
+                    <div class="card-front p-3">
+                        <div class="hd_card d-flex align-items-center justify-content-between w-100">
+                            <h3 class="m-0">Pizza Margherita</h3>
+                            <button class="flip-button btn btn-success">Flip</button>
+                        </div>
+                    </div>
+                    <div class="card-back p-3">
+                        <h5>Order Details</h5>
+                        
+                        <div class="d-flex align-items-center">
+                            <button class="orderButton btn btn-danger m-1">cancel</button>
+                            <h5 class="m-0 mx-2 counter">0</h5>
+                            <button class="plusButton btn btn-success m-1" >add to cart</button>
+                            <button class="moinsButton btn btn-danger m-1" style="display: none;" >-</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            
+        </div>
+
+        <div class="col-md-4"> 
+                    <!-- Card 3 -->
+        <div class="card mb-3">
+            <div class="flip-container">
+                <div class="card">
+                    <div class="card-front p-3">
+                        <div class="hd_card d-flex align-items-center justify-content-between w-100">
+                            <h3 class="m-0">Pizza Margherita</h3>
+                            <button class="flip-button btn btn-success">Flip</button>
+                        </div>
+                    </div>
+                    <div class="card-back p-3">
+                        <h5>Order Details</h5>
+                        
+                        <div class="d-flex align-items-center">
+                            <button class="orderButton btn btn-danger m-1">cancel</button>
+                            <h5 class="m-0 mx-2 counter">0</h5>
+                            <button class="plusButton btn btn-success m-1" >add to cart</button>
+                            <button class="moinsButton btn btn-danger m-1" style="display: none;" >-</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>    
+            </div>
+            <div class="col-md-4"> 
+                       <!-- Card 3 -->
+        <div class="card mb-3">
+            <div class="flip-container">
+                <div class="card">
+                    <div class="card-front p-3">
+                        <div class="hd_card d-flex align-items-center justify-content-between w-100">
+                            <h3 class="m-0">Pizza Margherita</h3>
+                            <button class="flip-button btn btn-success">Flip</button>
+                        </div>
+                    </div>
+                    <div class="card-back p-3">
+                        <h5>Order Details</h5>
+                        
+                        <div class="d-flex align-items-center">
+                            <button class="orderButton btn btn-danger m-1">cancel</button>
+                            <h5 class="m-0 mx-2 counter">0</h5>
+                            <button class="plusButton btn btn-success m-1" >add to cart</button>
+                            <button class="moinsButton btn btn-danger m-1" style="display: none;" >-</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+                    
+                </div>
+
+                <div class="col-md-4"> 
+                                         <!-- Card 3 -->
+        <div class="card mb-3">
+            <div class="flip-container">
+                <div class="card">
+                    <div class="card-front p-3">
+                        <div class="hd_card d-flex align-items-center justify-content-between w-100">
+                            <h3 class="m-0">Pizza Margherita</h3>
+                            <button class="flip-button btn btn-success">Flip</button>
+                        </div>
+                    </div>
+                    <div class="card-back p-3">
+                        <h5>Order Details</h5>
+                        
+                        <div class="d-flex align-items-center">
+                            <button class="orderButton btn btn-danger m-1">cancel</button>
+                            <h5 class="m-0 mx-2 counter">0</h5>
+                            <button class="plusButton btn btn-success m-1" >add to cart</button>
+                            <button class="moinsButton btn btn-danger m-1" style="display: none;" >-</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+                        
+                    </div>
+                    <div class="col-md-4"> 
+                                         <!-- Card 3 -->
+        <div class="card mb-3">
+            <div class="flip-container">
+                <div class="card">
+                    <div class="card-front p-3">
+                        <div class="hd_card d-flex align-items-center justify-content-between w-100">
+                            <h3 class="m-0">Pizza Margherita</h3>
+                            <button class="flip-button btn btn-success">Flip</button>
+                        </div>
+                    </div>
+                    <div class="card-back p-3">
+                        <h5>Order Details</h5>
+                        
+                        <div class="d-flex align-items-center">
+                            <button class="orderButton btn btn-danger m-1">cancel</button>
+                            <h5 class="m-0 mx-2 counter">0</h5>
+                            <button class="plusButton btn btn-success m-1" >add to cart</button>
+                            <button class="moinsButton btn btn-danger m-1" style="display: none;" >-</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+                            
+                        </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<div id="drinks" class="section">
+    <div class="container">
+        <h2>pizza</h2>
+        <div class="row">
+            <!-- Chicken Dish Example -->
+            <div class="col-md-4"> 
+        <!-- Card 3 -->
+        <div class="card mb-3">
+            <div class="flip-container">
+                <div class="card">
+                    <div class="card-front p-3">
+                        <div class="hd_card d-flex align-items-center justify-content-between w-100">
+                            <h3 class="m-0">Pizza Margherita</h3>
+                            <button class="flip-button btn btn-success">Flip</button>
+                        </div>
+                    </div>
+                    <div class="card-back p-3">
+                        <h5>Order Details</h5>
+                        
+                        <div class="d-flex align-items-center">
+                            <button class="orderButton btn btn-danger m-1">cancel</button>
+                            <h5 class="m-0 mx-2 counter">0</h5>
+                            <button class="plusButton btn btn-success m-1" >add to cart</button>
+                            <button class="moinsButton btn btn-danger m-1" style="display: none;" >-</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            
+        </div>
+
+        <div class="col-md-4"> 
+                    <!-- Card 3 -->
+        <div class="card mb-3">
+            <div class="flip-container">
+                <div class="card">
+                    <div class="card-front p-3">
+                        <div class="hd_card d-flex align-items-center justify-content-between w-100">
+                            <h3 class="m-0">Pizza Margherita</h3>
+                            <button class="flip-button btn btn-success">Flip</button>
+                        </div>
+                    </div>
+                    <div class="card-back p-3">
+                        <h5>Order Details</h5>
+                        
+                        <div class="d-flex align-items-center">
+                            <button class="orderButton btn btn-danger m-1">cancel</button>
+                            <h5 class="m-0 mx-2 counter">0</h5>
+                            <button class="plusButton btn btn-success m-1" >add to cart</button>
+                            <button class="moinsButton btn btn-danger m-1" style="display: none;" >-</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>    
+            </div>
+            <div class="col-md-4"> 
+                       <!-- Card 3 -->
+        <div class="card mb-3">
+            <div class="flip-container">
+                <div class="card">
+                    <div class="card-front p-3">
+                        <div class="hd_card d-flex align-items-center justify-content-between w-100">
+                            <h3 class="m-0">Pizza Margherita</h3>
+                            <button class="flip-button btn btn-success">Flip</button>
+                        </div>
+                    </div>
+                    <div class="card-back p-3">
+                        <h5>Order Details</h5>
+                        
+                        <div class="d-flex align-items-center">
+                            <button class="orderButton btn btn-danger m-1">cancel</button>
+                            <h5 class="m-0 mx-2 counter">0</h5>
+                            <button class="plusButton btn btn-success m-1" >add to cart</button>
+                            <button class="moinsButton btn btn-danger m-1" style="display: none;" >-</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+                    
+                </div>
+
+                <div class="col-md-4"> 
+                                         <!-- Card 3 -->
+        <div class="card mb-3">
+            <div class="flip-container">
+                <div class="card">
+                    <div class="card-front p-3">
+                        <div class="hd_card d-flex align-items-center justify-content-between w-100">
+                            <h3 class="m-0">Pizza Margherita</h3>
+                            <button class="flip-button btn btn-success">Flip</button>
+                        </div>
+                    </div>
+                    <div class="card-back p-3">
+                        <h5>Order Details</h5>
+                        
+                        <div class="d-flex align-items-center">
+                            <button class="orderButton btn btn-danger m-1">cancel</button>
+                            <h5 class="m-0 mx-2 counter">0</h5>
+                            <button class="plusButton btn btn-success m-1" >add to cart</button>
+                            <button class="moinsButton btn btn-danger m-1" style="display: none;" >-</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            </div>
+                        
+                    </div>
+                    <div class="col-md-4"> 
+                                         <!-- Card 3 -->
+        <div class="card mb-3">
+            <div class="flip-container">
+                <div class="card">
+                    <div class="card-front p-3">
+                        <div class="hd_card d-flex align-items-center justify-content-between w-100">
+                            <h3 class="m-0">Pizza Margherita</h3>
+                            <button class="flip-button btn btn-success">Flip</button>
+                        </div>
+                    </div>
+                    <div class="card-back p-3">
+                        <h5>Order Details</h5>
+                        
+                        <div class="d-flex align-items-center">
+                            <button class="orderButton btn btn-danger m-1">cancel</button>
+                            <h5 class="m-0 mx-2 counter">0</h5>
+                            <button class="plusButton btn btn-success m-1" >add to cart</button>
+                            <button class="moinsButton btn btn-danger m-1" style="display: none;" >-</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+                            
+                        </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<div class="container" id="result" style="display: none;" >
+    <!-- Other elements here -->
+    <p id="title_p" >verfie your order</p>
+    <p class="details" style="display: none;">___________________</p>
+    <p id="all" style="border: none; border-top: 2px solid #333;" ></p>
+    
+    <p id="allCounters" class="details" style="border: none; border-top: 2px solid #333;" >Total Count: 0</p>
+    
+    <button class="btn btn-success m-1" id="sendButton" >send the order</button>
+
+    <p id="doneParagraph" ></p>
+  
+</div>
+
+
+<!-- Footer -->
+<footer class="text-center py-4">
+    
+    <p>thank you to visit us</p>
+    <p>&copy; 2024 Your Restaurant</p>
+
+</footer>
+
+<!-- Bootstrap and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // Get all flip buttons and add event listeners
+    document.querySelectorAll('.flip-button').forEach(button => {
+        button.addEventListener('click', function(event) {
+            // Prevent card flip when clicking on the button itself
+            event.stopPropagation();
+
+            // Flip the parent card of the clicked button
+            const card = this.closest('.card');
+            card.classList.toggle('flipped');
+
+        });
+    });
+
+        // Get all flip buttons and add event listeners
+        document.querySelectorAll('.orderButton').forEach(button => {
+        button.addEventListener('click', function(event) {
+            // Prevent card flip when clicking on the button itself
+            event.stopPropagation();
+
+            // Flip the parent card of the clicked button
+            const card = this.closest('.card');
+            card.classList.toggle('flipped');
+
+            const parentDiv = this.closest('.d-flex');
+            const counter = parentDiv.querySelector('.counter');
+            const counter_total = parentDiv.querySelector('.counter_total');
+            const details = parentDiv.querySelector('.details');
+            //let count = parseInt(counter.textContent);
+            //count++;
+            counter.textContent = 0;
+            counter_total.textContent = 0; // Update counter display
+            details.textContent = '';
+
+            const plusButton = parentDiv.querySelector('.plusButton');
+            plusButton.textContent = 'add to cart';
+
+            // Show the "Minus" button if the count is greater than 1
+            const moinsButton = parentDiv.querySelector('.moinsButton');
+            moinsButton.style.display = 'none';
+        });
+    });
+</script>
+
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
+
+<script>
+    // Function to handle the button clicks
+
+
+    // Function to increment the counter
+    const plusButtons = document.querySelectorAll('.plusButton');
+    plusButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const parentDiv = this.closest('.d-flex');
+            const counter = parentDiv.querySelector('.counter');
+            const counter_price = parentDiv.querySelector('.counter_price');
+            const counter_total = parentDiv.querySelector('.counter_total');
+            const details = parentDiv.querySelector('.details');
+            let count = parseInt(counter.textContent);
+            let count_price = parseInt(counter_price.textContent);
+            count++;
+            counter.textContent = count; // Update counter display
+            counter_total.textContent = count * count_price;
+            details.textContent = 'pizza_margeritta' + ' ' + parseInt(counter.textContent) + ' pcs' + ' total: '+ counter_total.textContent ;
+            const plusButton = parentDiv.querySelector('.plusButton');
+            plusButton.textContent = '+';
+
+            // Show the "Minus" button if the count is greater than 1
+            const moinsButton = parentDiv.querySelector('.moinsButton');
+            moinsButton.style.display = count > 1 ? 'inline' : 'none';
+        });
+    });
+
+    // Function to decrement the counter
+    const moinsButtons = document.querySelectorAll('.moinsButton');
+    moinsButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const parentDiv = this.closest('.d-flex');
+            const counter = parentDiv.querySelector('.counter');
+            const counter_price = parentDiv.querySelector('.counter_price');
+            const counter_total = parentDiv.querySelector('.counter_total');
+            const details = parentDiv.querySelector('.details');
+            let count = parseInt(counter.textContent);
+            let count_price = parseInt(counter_price.textContent);
+            if (count > 0) { // Ensure counter does not go below zero
+                count--;
+                counter.textContent = count; // Update counter display
+                counter_total.textContent = count * count_price;
+                details.textContent = 'pizza_margeritta' + ' '+ parseInt(counter.textContent) + ' pcs' + ' total: '+ counter_total.textContent ;
+            }
+
+            // Hide the "Minus" button if the count is 1
+            const moinsButton = parentDiv.querySelector('.moinsButton');
+            moinsButton.style.display = count <= 1 ? 'none' : 'inline';
+        });
+    });
+</script>
+<script>
+document.getElementById('done').addEventListener('click', function() {
+    const allParagraph = document.getElementById('all');
+    const allCountersParagraph = document.getElementById('allCounters');
+    const cardBacks = document.querySelectorAll('.card-back');
+    // Get the paragraph element
+    const paragraph = document.getElementById('doneParagraph');
+    paragraph.style.display = 'none';
+    
+
+    const result = document.getElementById('result');
+    result.style.display = 'inline';
+    
+    let totalCounter = 0;
+    allParagraph.textContent = '\n';
+
+    cardBacks.forEach((cardBack, index) => {
+        const title = cardBack.querySelector('h5');
+        const counter = parseInt(cardBack.querySelector('.counter').textContent);
+       // const counter_total = parseInt(cardBack.querySelector('.counter_total').textContent);
+        
+        if (counter !== 0) {
+            const counter_total = parseInt(cardBack.querySelector('.counter_total').textContent);
+            allParagraph.innerHTML += `<br>${title.textContent}: ${counter} pcs <br>`;
+            totalCounter += counter_total;
+        }
+    });
+
+    allCountersParagraph.textContent = `Total Count: ${totalCounter}`;
+    
+});
+
+
+
+
+
+</script>
+
+<script>
+    document.getElementById('sendButton').addEventListener('click', function() {
+        const phoneNumber = '+221762357329'; // Phone number to share with
+    
+        // Get the paragraph element
+        let paragraph = document.getElementById('doneParagraph');
+    
+        // Select all <h7> elements with the class 'hd_x'
+    const detailsElements = document.querySelectorAll('p.details'); // Adjust the tag if necessary
+    let nonEmptyDetailsContents = [];
+    
+    detailsElements.forEach(p => {
+        // Get the trimmed text content
+        const textContent = p.textContent.trim();
+        // Check if the text content is not empty and not equal to '0'
+        if (textContent !== '') {
+            // Add the text content to the array
+            nonEmptyDetailsContents.push(textContent);
+        }
+    });
+    
+    console.log(nonEmptyDetailsContents); // Output the array for verification
+    
+    
+    
+        // Join the array into a single string with line breaks
+        paragraph.textContent = nonEmptyDetailsContents.join('\n');
+        const allCounters = document.getElementById('allCounters');
+    
+        // Check if paragraph's text content is not empty
+        if (allCounters.textContent.trim() !== 'Total Count: 0' || paragraph.textContent.trim() === 'Your order is empty') {
+            // Prepare the text to share
+            const textToShare = paragraph.textContent;
+            
+            // Encode the text to be URL-safe
+            const encodedText = encodeURIComponent(textToShare);
+            
+            // Create the WhatsApp share URL
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedText}`;
+            
+            // Open the URL in a new tab/window
+            window.open(whatsappUrl, '_blank');
+        } else {
+            // Alert if paragraph is empty
+            paragraph.style.display = 'inline';
+            paragraph.textContent='Your order is empty';
+        }
+    });
+    
+    // all changes 3
+    
+    </script>
+    
+
+</body>
+</html>
